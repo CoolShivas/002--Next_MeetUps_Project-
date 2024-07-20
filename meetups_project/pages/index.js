@@ -1,4 +1,3 @@
-import LayOut from "../components/layout/LayOut";
 import MeetUpList from "../components/meetUps/MeetUpList";
 
 const HomePage = () => {
@@ -27,9 +26,9 @@ const HomePage = () => {
   ];
 
   return (
-    <LayOut>
+    <>
       <MeetUpList meetups={DUMMY_MEETUPS}></MeetUpList>
-    </LayOut>
+    </>
   );
 };
 
