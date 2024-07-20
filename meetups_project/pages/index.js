@@ -44,13 +44,26 @@ const HomePage = (props) => {
   );
 };
 
-export async function getStaticProps() {
+// export async function getStaticProps() {
+//   // Fetch data from an API ;
+//   return {
+//     props: {
+//       meetups: DUMMY_MEETUPS,
+//     },
+//     revalidate: 10, // It wil render in every 10 seconds ;
+//   };
+// }
+
+export async function getServerSideProps(context) {
+  const request = context.request;
+  const response = context.response;
+
   // Fetch data from an API ;
+
   return {
     props: {
       meetups: DUMMY_MEETUPS,
     },
-    revalidate: 10, // It wil render in every 10 seconds ;
   };
 }
 
