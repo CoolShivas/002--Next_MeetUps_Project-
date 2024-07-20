@@ -1,7 +1,11 @@
+import NewMeetUpForm from "../../components/meetups/NewMeetUpForm";
+import classes from "./NewMeetUps.module.css";
+
 const NewMeetUps = () => {
   return (
     <>
-      <h1> Here, you can see the new meetups. </h1>
+      <h1 className={classes.newmeetups_heading}>Fill the New Meet-Up form.</h1>
+      <NewMeetUpForm></NewMeetUpForm>
     </>
   );
 };
