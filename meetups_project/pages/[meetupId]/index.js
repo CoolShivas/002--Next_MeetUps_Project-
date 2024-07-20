@@ -23,6 +23,7 @@ const MeetUpId = () => {
         address="Soni Coloney, Choudhary Mohalla, Guna(M.P.)"
         description="This is the great place."
       ></MeetUpDetails>
+      {/* Passing the static data to MeetUpDetails not dynamic data; */}
     </>
   );
 };
