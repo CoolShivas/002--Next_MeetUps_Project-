@@ -28,4 +28,41 @@ const MeetUpId = () => {
   );
 };
 
+export async function getStaticPaths() {
+  return {
+    fallback: false,
+    paths: [
+      {
+        params: {
+          meetupId: "m1",
+        },
+      },
+      {
+        params: {
+          meetupId: "m2",
+        },
+      },
+    ],
+  };
+}
+
+export async function getStaticProps(context) {
+  // Fetch data for a single meetup ;
+
+  const meetingId = context.params.meetupId;
+
+  return {
+    props: {
+      meetupdata: {
+        id: meetingId,
+        image:
+          "https://prasadyash2411.github.io/ecom-website/img/Album%201.png",
+        title: "A First MeetUp.",
+        address: "Soni Coloney, Choudhary Mohalla, Guna(M.P.)",
+        description: "This is the great place.",
+      },
+    },
+  };
+}
+
 export default MeetUpId;
