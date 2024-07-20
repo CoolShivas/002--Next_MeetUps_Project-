@@ -50,6 +50,7 @@ export async function getStaticProps() {
     props: {
       meetups: DUMMY_MEETUPS,
     },
+    revalidate: 10, // It wil render in every 10 seconds ;
   };
 }
 
