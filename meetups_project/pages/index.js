@@ -1,3 +1,4 @@
+import MainNavigation from "../components/layout/MainNavigation";
 import MeetUpList from "../components/meetUps/MeetUpList";
 
 const HomePage = () => {
@@ -27,6 +28,7 @@ const HomePage = () => {
 
   return (
     <>
+      <MainNavigation></MainNavigation>
       <MeetUpList meetups={DUMMY_MEETUPS}></MeetUpList>
     </>
   );
