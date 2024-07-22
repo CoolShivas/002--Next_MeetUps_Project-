@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { useRouter } from "next/router";
 import NewMeetUpForm from "../../components/meetups/NewMeetUpForm";
 import classes from "./NewMeetUps.module.css";
@@ -25,6 +26,13 @@ const NewMeetUps = () => {
 
   return (
     <>
+      <Head>
+        <title> Add a New MeetUp </title>
+        <meta
+          name="description"
+          content="Add your own meetups and create amazing networking opportunities."
+        />
+      </Head>
       <h1 className={classes.newmeetups_heading}>Fill the New Meet-Up form.</h1>
       <NewMeetUpForm
         handlerOnAddNewMeetUps={handlerOnAddNewMeetUps}

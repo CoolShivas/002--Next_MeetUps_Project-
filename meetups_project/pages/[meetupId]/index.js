@@ -69,6 +69,7 @@
 
 ///******************************************************************************************************************* */
 
+import Head from "next/head";
 import { MongoClient, ObjectId } from "mongodb";
 import MeetUpDetails from "../../components/meetups/MeetUpDetails";
 
@@ -88,6 +89,11 @@ const MeetUpId = (props) => {
       </p> */}
 
       {/* This page can be reach out by writing in URL http://localhost:3000/shiva or http://localhost:3000/anything  */}
+
+      <Head>
+        <title> {props.dataFromServer.title} </title>
+        <meta name="description" content={props.dataFromServer.description} />
+      </Head>
 
       <MeetUpDetails
         // image="https://prasadyash2411.github.io/ecom-website/img/Album%201.png"

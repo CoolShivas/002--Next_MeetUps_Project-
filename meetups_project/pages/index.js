@@ -1,3 +1,4 @@
+import Head from "next/head";
 import { MongoClient } from "mongodb";
 // import { useEffect, useState } from "react";
 import MeetUpList from "../components/meetUps/MeetUpList";
@@ -40,6 +41,13 @@ const HomePage = (props) => {
 
       {/* <MeetUpList meetups={loadedMeetUps}></MeetUpList> */}
 
+      <Head>
+        <title> Next Meet Ups </title>
+        <meta
+          name="description"
+          content="Browse a huge list of highly active Next MeetUps!"
+        />
+      </Head>
       <MeetUpList meetups={props.meetups}></MeetUpList>
     </>
   );
