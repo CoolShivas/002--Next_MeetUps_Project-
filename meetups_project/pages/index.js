@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { MongoClient } from "mongodb";
+// import { useEffect, useState } from "react";
 import MeetUpList from "../components/meetUps/MeetUpList";
 
 const DUMMY_MEETUPS = [
@@ -44,26 +45,46 @@ const HomePage = (props) => {
   );
 };
 
-// export async function getStaticProps() {
+// export async function getServerSideProps(context) {
+//   const request = context.request;
+//   const response = context.response;
+
 //   // Fetch data from an API ;
+
 //   return {
 //     props: {
 //       meetups: DUMMY_MEETUPS,
 //     },
-//     revalidate: 10, // It wil render in every 10 seconds ;
 //   };
-// }
+// };
 
-export async function getServerSideProps(context) {
-  const request = context.request;
-  const response = context.response;
-
+export async function getStaticProps() {
   // Fetch data from an API ;
+
+  const client = await MongoClient.connect(
+    "mongodb+srv://shivas2710cool00:8frqrkDg0VDOu0MK@cluster0.ncqmpot.mongodb.net/shivajiData?retryWrites=true&w=majority&appName=Cluster0"
+  );
+
+  const db = client.db();
+
+  const meetupsCollection = db.collection("uniqueStar");
+
+  const result = await meetupsCollection.find().toArray();
+
+  client.close();
 
   return {
     props: {
-      meetups: DUMMY_MEETUPS,
+      // meetups: DUMMY_MEETUPS,
+      meetups: result.map((arr) => ({
+        id: arr._id.toString(),
+        title: arr.title,
+        image: arr.image,
+        address: arr.address,
+        description: arr.description,
+      })),
     },
+    revalidate: 1, // It wil render in every 10 seconds ;
   };
 }
 
